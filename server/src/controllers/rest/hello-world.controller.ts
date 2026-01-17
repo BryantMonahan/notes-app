@@ -5,6 +5,6 @@ import { Get } from "@tsed/schema";
 export class HelloWorldController {
   @Get("/hello")
   get() {
-    return "hello";
+    return { message: "hello" }
   }
 }
