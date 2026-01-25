@@ -9,6 +9,12 @@
     "target": "es2022",
     "externalHelpers": true,
     "keepClassNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": [
+        "../shared/*"
+      ]
+    },
     "transform": {
       "useDefineForClassFields": false,
       "legacyDecorator": true,

@@ -2,9 +2,17 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "noEmit": true
+    "paths": {
+      "@shared/*": [
+        "../shared/*"
+      ]
+    },
+    "noEmit": false
   },
-  "include": [],
+  "include": [
+    "src/**/*",
+    "../shared/**/*"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

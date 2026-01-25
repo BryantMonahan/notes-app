@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
-    "noEmit": true,
+    "composite": true,
+    "noEmit": false,
     "types": [
       "vitest/globals",
       "vitest/importMeta",

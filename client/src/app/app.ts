@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { hello } from '@shared/exObj'
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class App {
     const req = new Request('/rest/hello-world/hello')
     // console.log(req)
     const res = await fetch('rest/hello-world/hello')
-    this.http.get<{ message: string }>('/rest/hello-world/hello').subscribe(msg => {
+    this.http.get<hello>('/rest/hello-world/hello').subscribe(msg => {
       console.log('here')
       console.log(msg.message)
     })
