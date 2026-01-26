@@ -11,4 +11,25 @@ services:
     image: server/server:latest
     ports:
       - "8081:8081"
+    depends_on:
+      - postgres # Ensures postgres starts before the server
+    environment:
+      # These allow your server to connect to the database container
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=notes_db
 
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432" # Maps localhost:5432 to the container
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: notes_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
